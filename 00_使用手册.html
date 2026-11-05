@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>沙粒梧桐的知识库 · 使用手册</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  :root {
+    --bg: #FAF8F5;
+    --card: #FFFFFF;
+    --ink: #2B2A28;
+    --ink-soft: #6E6A64;
+    --ink-faint: #9C9790;
+    --line: #E8E3DA;
+    --brown: #8A6A4B;
+    --brown-light: #F3EDE5;
+    --green: #5B7C6A;
+    --green-light: #EBF1ED;
+  }
+
+  body {
+    background: var(--bg);
+    color: var(--ink);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif;
+    line-height: 1.75;
+    font-size: 16px;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .wrap { max-width: 880px; margin: 0 auto; padding: 0 24px 100px; }
+
+  /* ---------- Hero ---------- */
+  .hero { padding: 88px 0 56px; border-bottom: 1px solid var(--line); }
+  .hero .kicker {
+    font-size: 13px; letter-spacing: 0.18em; color: var(--brown);
+    font-weight: 600; margin-bottom: 20px;
+  }
+  .hero h1 {
+    font-size: clamp(32px, 5vw, 46px);
+    line-height: 1.25; font-weight: 700;
+    letter-spacing: -0.02em; margin-bottom: 20px;
+  }
+  .hero h1 em { font-style: normal; color: var(--brown); }
+  .hero .sub { font-size: 17px; color: var(--ink-soft); max-width: 620px; }
+
+  /* ---------- 首屏行动条 ---------- */
+  .start-bar {
+    margin-top: 36px; background: var(--brown-light);
+    border-left: 3px solid var(--brown); border-radius: 0 10px 10px 0;
+    padding: 22px 26px;
+  }
+  .start-bar .t { font-weight: 700; margin-bottom: 6px; font-size: 15px; }
+  .start-bar code {
+    background: #fff; padding: 3px 8px; border-radius: 5px;
+    font-family: ui-monospace, "Cascadia Code", Consolas, monospace;
+    font-size: 14px; border: 1px solid #E5DCD0; color: var(--brown);
+  }
+
+  /* ---------- Section ---------- */
+  section { padding-top: 72px; }
+  .sec-num {
+    display: inline-block; font-size: 12px; font-weight: 700;
+    letter-spacing: 0.14em; color: var(--brown); margin-bottom: 12px;
+  }
+  h2 {
+    font-size: 27px; font-weight: 700; letter-spacing: -0.01em;
+    margin-bottom: 16px; line-height: 1.4;
+  }
+  h2 + .lead { color: var(--ink-soft); font-size: 16px; margin-bottom: 32px; max-width: 660px; }
+
+  h3 { font-size: 17px; font-weight: 700; margin: 32px 0 10px; }
+
+  /* ---------- 三层架构 ---------- */
+  .stack { display: flex; flex-direction: column; gap: 12px; }
+  .layer {
+    background: var(--card); border: 1px solid var(--line); border-radius: 12px;
+    padding: 20px 24px; display: grid; grid-template-columns: 130px 1fr;
+    gap: 20px; align-items: start;
+  }
+  .layer .lname { font-weight: 700; font-size: 15px; }
+  .layer .lname small {
+    display: block; font-weight: 500; font-size: 12px;
+    color: var(--ink-faint); letter-spacing: 0.04em; margin-top: 2px;
+  }
+  .layer .ldesc { font-size: 14.5px; color: var(--ink-soft); }
+  .layer .ldesc b { color: var(--ink); font-weight: 600; }
+  .layer.l1 { border-left: 3px solid #C9B79F; }
+  .layer.l2 { border-left: 3px solid var(--brown); }
+  .layer.l3 { border-left: 3px solid var(--green); }
+
+  .arrow {
+    text-align: center; color: var(--ink-faint); font-size: 13px;
+    letter-spacing: 0.1em; padding: 2px 0;
+  }
+
+  /* ---------- 循环图 ---------- */
+  .loop {
+    display: grid; grid-template-columns: repeat(4, 1fr);
+    gap: 10px; margin-top: 8px;
+  }
+  .loop-item {
+    background: var(--card); border: 1px solid var(--line);
+    border-radius: 12px; padding: 20px 16px; position: relative;
+  }
+  .loop-item .n {
+    font-size: 11px; font-weight: 700; color: var(--brown);
+    letter-spacing: 0.12em; margin-bottom: 8px;
+  }
+  .loop-item .h { font-weight: 700; font-size: 15px; margin-bottom: 6px; }
+  .loop-item .d { font-size: 13.5px; color: var(--ink-soft); line-height: 1.6; }
+  .loop-item .who {
+    margin-top: 12px; font-size: 11px; color: var(--ink-faint);
+    border-top: 1px dashed var(--line); padding-top: 8px;
+  }
+
+  /* ---------- 目录地图 ---------- */
+  .map { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+  .map-row {
+    background: var(--card); border: 1px solid var(--line); border-radius: 10px;
+    padding: 14px 18px; display: flex; gap: 14px; align-items: baseline;
+  }
+  .map-row.core { border-color: var(--brown); background: var(--brown-light); }
+  .map-row .p {
+    font-family: ui-monospace, "Cascadia Code", Consolas, monospace;
+    font-size: 12.5px; color: var(--brown); white-space: nowrap; font-weight: 600;
+  }
+  .map-row .d { font-size: 13.5px; color: var(--ink-soft); }
+
+  /* ---------- 时间线 ---------- */
+  .timeline { position: relative; padding-left: 34px; }
+  .timeline::before {
+    content: ''; position: absolute; left: 9px; top: 8px; bottom: 8px;
+    width: 2px; background: var(--line);
+  }
+  .tl-item { position: relative; padding-bottom: 26px; }
+  .tl-item::before {
+    content: ''; position: absolute; left: -30px; top: 7px;
+    width: 10px; height: 10px; border-radius: 50%;
+    background: var(--card); border: 2px solid var(--brown);
+  }
+  .tl-item .day { font-size: 12px; font-weight: 700; color: var(--brown); letter-spacing: 0.1em; }
+  .tl-item .what { font-weight: 600; font-size: 15.5px; margin: 2px 0 3px; }
+  .tl-item .note { font-size: 14px; color: var(--ink-soft); }
+
+  /* ---------- 口令卡 ---------- */
+  .cmds { display: grid; gap: 10px; }
+  .cmd {
+    background: var(--card); border: 1px solid var(--line); border-radius: 12px;
+    padding: 18px 22px; display: grid; grid-template-columns: 1fr auto; gap: 16px;
+    align-items: center;
+  }
+  .cmd .h { font-weight: 700; font-size: 15.5px; margin-bottom: 3px; }
+  .cmd .d { font-size: 13.5px; color: var(--ink-soft); }
+  .cmd .when {
+    font-size: 12px; color: var(--brown); background: var(--brown-light);
+    padding: 5px 12px; border-radius: 20px; white-space: nowrap; font-weight: 600;
+  }
+
+  /* ---------- 对比表 ---------- */
+  .compare { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 8px; }
+  .compare > div { background: var(--card); border: 1px solid var(--line); border-radius: 12px; padding: 20px 22px; }
+  .compare .tag { font-size: 12px; font-weight: 700; letter-spacing: 0.1em; margin-bottom: 10px; }
+  .compare .bad .tag { color: #A85B4A; }
+  .compare .good .tag { color: var(--green); }
+  .compare ul { list-style: none; }
+  .compare li { font-size: 14px; color: var(--ink-soft); padding: 5px 0 5px 18px; position: relative; }
+  .compare li::before { position: absolute; left: 0; top: 5px; font-size: 13px; }
+  .compare .bad li::before { content: '×'; color: #C08A7C; font-weight: 700; }
+  .compare .good li::before { content: '✓'; color: var(--green); font-weight: 700; }
+
+  /* ---------- 提示块 ---------- */
+  .note {
+    background: var(--green-light); border-radius: 10px; padding: 18px 22px;
+    font-size: 14.5px; color: #3F574C; margin-top: 20px;
+  }
+  .note b { color: #2F4438; }
+
+  .quote {
+    border-left: 3px solid var(--brown); padding: 4px 0 4px 20px;
+    font-size: 17px; color: var(--ink); margin: 28px 0; font-weight: 500;
+  }
+
+  /* ---------- 结尾 ---------- */
+  .end {
+    margin-top: 80px; padding: 48px 40px; background: var(--card);
+    border: 1px solid var(--line); border-radius: 16px; text-align: center;
+  }
+  .end .big { font-size: 22px; font-weight: 700; line-height: 1.5; margin-bottom: 12px; }
+  .end .small { font-size: 14.5px; color: var(--ink-soft); }
+
+  /* ---------- 响应式 ---------- */
+  @media (max-width: 720px) {
+    .loop { grid-template-columns: 1fr 1fr; }
+    .map { grid-template-columns: 1fr; }
+    .layer { grid-template-columns: 1fr; gap: 8px; }
+    .compare { grid-template-columns: 1fr; }
+    .cmd { grid-template-columns: 1fr; gap: 10px; }
+    .cmd .when { justify-self: start; }
+    .hero { padding: 56px 0 40px; }
+    .end { padding: 36px 24px; }
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <!-- HERO -->
+  <div class="hero">
+    <div class="kicker">沙粒梧桐 · 个人知识库</div>
+    <h1>你的知识库<br>已经<em>搭好了</em>。</h1>
+    <p class="sub">
+      不需要懂代码，不需要装插件，不需要研究什么"第二大脑"。<br>
+      接下来你每天只需要花 3 分钟，剩下的交给 AI 和你自己的记录习惯。
+    </p>
+    <div class="start-bar">
+      <div class="t">现在只做这一件事</div>
+      下载 Obsidian（obsidian.md），然后打开 <code>D:\01-沙粒梧桐的知识库</code> 这个文件夹作为库。<br>
+      详细步骤写在库里的 <code>00_从这里开始.md</code>。
+    </div>
+  </div>
+
+  <!-- 01 核心思想 -->
+  <section>
+    <div class="sec-num">01 · 核心思路</div>
+    <h2>你不是在建一个文件夹，<br>你是在养一个"会干活的档案室"</h2>
+    <p class="lead">
+      大多数人做知识库失败，是因为把 AI 当搜索引擎用——每次提问，它都要重新翻一遍你的原始文件，
+      翻完就忘，下次还要重翻。这就是为什么你跟 AI 聊了半年，它还是不了解你。
+    </p>
+    <p class="lead">
+      Andrej Karpathy 提过一个办法：别让 AI 每次现翻，让 AI 先把材料<b>编译</b>成一本持续更新的百科。
+      你负责说，它负责整理成条目，条目之间互相链接，下次直接查条目。<br><br>
+      我按你的实际情况改了一版——他把论文编译成百科，你把日记编译成知识卡。
+    </p>
+
+    <div class="stack">
+      <div class="layer l1">
+        <div class="lname">原始层<small>ONLY YOU</small></div>
+        <div class="ldesc">
+          <b>你的日记、书摘、随手记。</b>原样保留，一个字都不改。<br>
+          对应目录：<code>01_Daily_每日记录</code> · <code>06_sources_原始资料</code> · <code>00_Inbox_临时收集</code>
+        </div>
+      </div>
+      <div class="arrow">↓ 每天一次，AI 读一遍，提炼</div>
+      <div class="layer l2">
+        <div class="lname">知识层<small>AI 写 · 你审</small></div>
+        <div class="ldesc">
+          <b>知识卡。</b>一张卡只讲一件事：一句话、因果链、<b>边界</b>（什么时候会失效）、你的实践、链接。<br>
+          对应目录：<code>03_Wiki_知识条目</code>
+        </div>
+      </div>
+      <div class="arrow">↓ 有好的感悟，就往下走</div>
+      <div class="layer l3">
+        <div class="lname">成品层<small>你 + AI</small></div>
+        <div class="ldesc">
+          <b>口播稿。</b>知识卡 + 你的表达风格 = 一期能拍的视频。<br>
+          对应目录：<code>04_口播稿_沙粒梧桐</code>
+        </div>
+      </div>
+    </div>
+
+    <div class="note">
+      <b>还有一层最容易漏，但最关键：规则层。</b><br>
+      就是我写的那份 <code>02_AI_prompts_指令库/00_给AI的说明书.md</code>。
+      它告诉 AI 你是谁、你的库怎么分层、什么能改什么不能改。
+      没有这一层，AI 每次都会按自己的性子乱写。
+    </div>
+  </section>
+
+  <!-- 02 日常循环 -->
+  <section>
+    <div class="sec-num">02 · 每天的循环</div>
+    <h2>四个动作，一天转一圈</h2>
+    <p class="lead">这套系统只有这四个动作。你不需要学更多。</p>
+
+    <div class="loop">
+      <div class="loop-item">
+        <div class="n">STEP 1</div>
+        <div class="h">随手记</div>
+        <div class="d">今天干了啥、踩了啥坑、有啥感悟。三行就够。</div>
+        <div class="who">你 · 3 分钟</div>
+      </div>
+      <div class="loop-item">
+        <div class="n">STEP 2</div>
+        <div class="h">AI 提炼</div>
+        <div class="d">它挑出"能变成卡"的点，编号列给你，等你点头。</div>
+        <div class="who">AI · 30 秒</div>
+      </div>
+      <div class="loop-item">
+        <div class="n">STEP 3</div>
+        <div class="h">你点头</div>
+        <div class="d">回一句"第 1 个和第 3 个"，卡就写进库里了。</div>
+        <div class="who">你 · 10 秒</div>
+      </div>
+      <div class="loop-item">
+        <div class="n">STEP 4</div>
+        <div class="h">做口播稿</div>
+        <div class="d">有值得拍的感悟，先过四项筛子再动笔。没感悟就不做。</div>
+        <div class="who">你 + AI · 20 分钟</div>
+      </div>
+    </div>
+
+    <div class="quote">
+      卡不是为了收藏，是为了三个月后你还找得到、还用得上。
+    </div>
+  </section>
+
+  <!-- 03 目录地图 -->
+  <section>
+    <div class="sec-num">03 · 认路</div>
+    <h2>十个文件夹，你每天只碰三个</h2>
+    <p class="lead">左边文件列表看着多，其实只有三个是你的主战场，其它都是自动的或者备用的。</p>
+
+    <div class="map">
+      <div class="map-row core"><span class="p">01_Daily</span><span class="d">日记。你的主战场</span></div>
+      <div class="map-row core"><span class="p">03_Wiki</span><span class="d">知识卡。AI 写，你审</span></div>
+      <div class="map-row core"><span class="p">02_prompts</span><span class="d">口令库。规则都在这，你只要说触发词</span></div>
+      <div class="map-row"><span class="p">00_Inbox</span><span class="d">中转站。来不及分类扔这</span></div>
+      <div class="map-row"><span class="p">04_口播稿</span><span class="d">视频稿子</span></div>
+      <div class="map-row"><span class="p">05_Projects</span><span class="d">跨天的事。一个项目一个文件，进度你说了算</span></div>
+      <div class="map-row"><span class="p">06_sources</span><span class="d">书摘、文章、附件</span></div>
+      <div class="map-row"><span class="p">07_Templates</span><span class="d">模板。不用动</span></div>
+      <div class="map-row"><span class="p">08_Maps</span><span class="d">首页 + 操作日志</span></div>
+      <div class="map-row"><span class="p">99_Archive</span><span class="d">归档。只进不出，不删</span></div>
+    </div>
+
+    <div class="note" style="margin-top:26px">
+      <b>另外，根目录有三个 00_ 开头的文件，那不是文件夹，是说明书。</b><br><br>
+      <b>00_从这里开始.md</b> —— 你最初照着做的那份<br>
+      <b>00_我的档案.md</b> —— 你是谁。AI 靠它认识你<br>
+      <b>00_使用手册.html</b> —— 就是你现在看的这本<br><br>
+      <b>档案那份最要紧。</b>你 50 多岁、精力有限、普通话不太好——这些话写进去了，
+      AI 才不会给你安排"每天坚持两小时"这种方案。情况变了，跟我说一句"<b>档案更新</b>"就行。
+    </div>
+  </section>
+
+  <!-- 04 七天计划 -->
+  <section>
+    <div class="sec-num">04 · 启动路径</div>
+    <h2>七天，让它活起来</h2>
+    <p class="lead">
+      千万别想着一天搭完美。新手搭知识库最常见的死法，就是前两天猛搞三小时，第三天就再也不打开了。<br>
+      按这个节奏，每天只要十几分钟。
+    </p>
+
+    <div class="timeline">
+      <div class="tl-item">
+        <div class="day">第 1 天</div>
+        <div class="what">装 Obsidian，打开库，写第一篇日记</div>
+        <div class="note">15 分钟。写三行就行，别追求文采。</div>
+      </div>
+      <div class="tl-item">
+        <div class="day">第 2 天</div>
+        <div class="what">写日记，然后让 AI 整理出第一张知识卡</div>
+        <div class="note">10 分钟。第一次看到卡长出来，会有点爽。</div>
+      </div>
+      <div class="tl-item">
+        <div class="day">第 3 天</div>
+        <div class="what">写日记，整理，然后按 Ctrl + G 看图谱</div>
+        <div class="note">8 分钟。你会看到两个点连成一条线。这就是复利。</div>
+      </div>
+      <div class="tl-item">
+        <div class="day">第 4 天</div>
+        <div class="what">从日记里挑一个"火花"，跟 AI 聊视频角度</div>
+        <div class="note">15 分钟。先聊角度，别急着让它写稿。</div>
+      </div>
+      <div class="tl-item">
+        <div class="day">第 5 天</div>
+        <div class="what">定一版口播稿，念出声，改拗口的地方</div>
+        <div class="note">20 分钟。念出来才知道哪里不像人话。</div>
+      </div>
+      <div class="tl-item">
+        <div class="day">第 6 天</div>
+        <div class="what">拍第一条视频（30 秒也算成功）</div>
+        <div class="note">重点是走完一整圈，不是拍得多好。</div>
+      </div>
+      <div class="tl-item">
+        <div class="day">第 7 天</div>
+        <div class="what">做一次周复盘</div>
+        <div class="note">10 分钟。用周复盘模板，回答三个问题就行。</div>
+      </div>
+    </div>
+
+    <div class="note">
+      <b>七天后的你：</b>7 篇日记、3 到 5 张知识卡、1 条视频。<br>
+      这个进度，已经超过 95% 说要建知识库的人了。
+    </div>
+  </section>
+
+  <!-- 05 口令速查 -->
+  <section>
+    <div class="sec-num">05 · 速查</div>
+    <h2>七个词，覆盖所有场景</h2>
+    <p class="lead">
+      <b>不用打开文件，不用复制粘贴，不用填【】。</b>
+      想说哪件事，就说那个词——规矩在我这边，我自己去读。
+      口令文件还在 <code>02_AI_prompts_指令库/</code>，那份是给我看的，你不用翻。
+    </p>
+
+    <div class="cmds">
+      <div class="cmd">
+        <div>
+          <div class="h"><code>整理日记</code></div>
+          <div class="d">日记 → 知识卡。我先列点，你点头我才写。补前几天的就说 <code>整理：10-28</code>。</div>
+        </div>
+        <div class="when">每天</div>
+      </div>
+      <div class="cmd">
+        <div>
+          <div class="h"><code>体检</code></div>
+          <div class="d">找打架的卡、过时的卡、孤岛卡、重复卡。只出报告不动手。</div>
+        </div>
+        <div class="when">每月</div>
+      </div>
+      <div class="cmd">
+        <div>
+          <div class="h"><code>出稿：方向</code></div>
+          <div class="d">先过四项筛子挑角度，再只写前 3 秒，最后才铺全篇。中间两次停下来问你。</div>
+        </div>
+        <div class="when">有选题时</div>
+      </div>
+      <div class="cmd">
+        <div>
+          <div class="h"><code>问库：问题</code></div>
+          <div class="d">问自己以前怎么处理的。答案带出处，没有就说没有。</div>
+        </div>
+        <div class="when">想用时</div>
+      </div>
+      <div class="cmd">
+        <div>
+          <div class="h"><code>灵感入库：原文</code></div>
+          <div class="d">书摘、文章、别人的话直接贴在冒号后面。客观复述一遍，再写你的看法，最后挑能用的动作。</div>
+        </div>
+        <div class="when">看到好东西</div>
+      </div>
+      <div class="cmd">
+        <div>
+          <div class="h"><code>档案更新：变了什么</code></div>
+          <div class="d">情况变了就说一句，我改文件、改记忆、记一笔台账。</div>
+        </div>
+        <div class="when">情况变了</div>
+      </div>
+      <div class="cmd">
+        <div>
+          <div class="h"><code>别急着答：问题</code></div>
+          <div class="d">难题专用。我不直接答，先挖你的隐含假设、点明缺什么信息、只反问你一个问题——等你答完才给答案。</div>
+        </div>
+        <div class="when">拿不定主意</div>
+      </div>
+    </div>
+
+    <div class="note">
+      这些词只在一个地方维护：<code>02_AI_prompts_指令库/00_给AI的说明书.md</code> 开头那张表。
+      以后加新功能，就往那张表里加一行，你不用多记。
+    </div>
+  </section>
+
+  <!-- 06 思想改造 -->
+  <section>
+    <div class="sec-num">06 · 为什么改了</div>
+    <h2>Karpathy 那套，哪里不适用你的场景</h2>
+    <p class="lead">
+      他的原始方法是为"读论文的研究者"设计的。你是"每天在一线干活、顺便拍视频"的人，
+      直接照搬会有三个地方水土不服，我做了调整。
+    </p>
+
+    <div class="compare">
+      <div class="bad">
+        <div class="tag">原版的做法</div>
+        <ul>
+          <li>原料是外部论文，越读越多</li>
+          <li>AI 全权维护，人几乎不编辑</li>
+          <li>产出就是 wiki 页面本身</li>
+          <li>用 CLAUDE.md 当规则文件</li>
+        </ul>
+      </div>
+      <div class="good">
+        <div class="tag">改成你的做法</div>
+        <ul>
+          <li>原料是你的日记，越写越厚</li>
+          <li>AI 写、你审、你改，越改越像你</li>
+          <li>产出还要能拍成视频</li>
+          <li>规则写在中文说明书里，你看得懂</li>
+        </ul>
+      </div>
+    </div>
+
+    <h3>最关键的一处改动</h3>
+    <p class="lead" style="margin-bottom:0">
+      原版强调"人几乎不编辑 wiki"。但你是新手，如果库里全是不熟悉的措辞，你三个月后就不敢打开了。<br><br>
+      所以我把规则改成：<b>AI 写完你必须过一眼，觉得不像你说的话就改成你的话。</b>
+      改得越多，AI 越懂你的语气——这比任何提示词技巧都有效。
+    </p>
+
+    <div class="quote">
+      知识库里最值钱的不是信息量，<br>是"这些话确实是我说的"。
+    </div>
+  </section>
+
+  <!-- 结尾 -->
+  <div class="end">
+    <div class="big">今天的三行日记，<br>就是这座库的第一块砖。</div>
+    <div class="small">
+      别想着一口气搭完美。打开 Obsidian，写三行，就够了。
+    </div>
+  </div>
+
+</div>
+</body>
+</html>

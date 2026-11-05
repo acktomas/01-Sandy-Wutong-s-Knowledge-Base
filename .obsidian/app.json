@@ -1,0 +1,17 @@
+{
+  "attachmentFolderPath": "06_sources_原始资料/附件",
+  "newFileLocation": "folder",
+  "newFileFolderPath": "00_Inbox_临时收集",
+  "alwaysUpdateLinks": true,
+  "showUnsupportedFiles": true,
+  "useMarkdownLinks": false,
+  "newLinkFormat": "shortest",
+  "trashOption": "local",
+  "promptDelete": true,
+  "showLineNumber": false,
+  "readableLineLength": true,
+  "strictLineBreaks": false,
+  "foldHeading": true,
+  "foldIndent": true,
+  "showFrontmatter": true
+}

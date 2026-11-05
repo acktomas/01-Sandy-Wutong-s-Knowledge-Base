@@ -1,0 +1,25 @@
+{
+  "vaultId": "",
+  "vaultName": "",
+  "selective": {
+    "images": true,
+    "audio": true,
+    "video": true,
+    "pdf": true,
+    "other": false,
+    "excludedFolders": [],
+    "config": {
+      "app": true,
+      "appearance": true,
+      "appearanceData": true,
+      "hotkey": true,
+      "corePlugin": true,
+      "corePluginData": true,
+      "communityPlugin": false,
+      "communityPluginData": false
+    }
+  },
+  "debugLog": false,
+  "errorReport": true,
+  "errorReportNoticeShown": true
+}

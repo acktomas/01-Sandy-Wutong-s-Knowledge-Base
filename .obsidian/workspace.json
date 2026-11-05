@@ -1,0 +1,205 @@
+{
+  "main": {
+    "id": "9bd949c110f521bb",
+    "type": "split",
+    "children": [
+      {
+        "id": "5bb7ca4668ee907c",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "5d89895ec2dc6bdb",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "05_Projects_项目/PID_motor_angle/PID motor angle.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "PID motor angle"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "e372f304d57c5a86",
+    "type": "split",
+    "children": [
+      {
+        "id": "5a142c244ebf6a86",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "264e7dc8abcd374c",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "alphabetical",
+                "autoReveal": false,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-folder-closed",
+              "title": "文件列表"
+            }
+          },
+          {
+            "id": "597697ff5d2664d9",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              },
+              "icon": "lucide-search",
+              "title": "搜索"
+            }
+          },
+          {
+            "id": "6d7a6836c50660e8",
+            "type": "leaf",
+            "state": {
+              "type": "bookmarks",
+              "state": {
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-bookmark",
+              "title": "书签"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 298.3000183105469
+  },
+  "right": {
+    "id": "095f553a5e1a4ec2",
+    "type": "split",
+    "children": [
+      {
+        "id": "7e26b5a5e87d21a2",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "0b87321670e76e84",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "file": "01_Daily_每日记录/2026-10-28.md",
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-coming-in",
+              "title": "反向链接"
+            }
+          },
+          {
+            "id": "32a854c782102730",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "file": "01_Daily_每日记录/2026-10-28.md",
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-going-out",
+              "title": "出链"
+            }
+          },
+          {
+            "id": "2f4199a9e1b4e4d7",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-tags",
+              "title": "标签"
+            }
+          },
+          {
+            "id": "bee93b65db6ba31b",
+            "type": "leaf",
+            "state": {
+              "type": "all-properties",
+              "state": {
+                "sortOrder": "frequency",
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-archive",
+              "title": "添加笔记属性"
+            }
+          },
+          {
+            "id": "80b6c3be10c99ce1",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "file": "01_Daily_每日记录/2026-10-28.md",
+                "followCursor": false,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-list",
+              "title": "大纲"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300,
+    "collapsed": true
+  },
+  "left-ribbon": {
+    "hiddenItems": {
+      "switcher:打开快速切换": false,
+      "graph:查看关系图谱": false,
+      "canvas:新建白板": false,
+      "daily-notes:打开/创建今天的日记": false,
+      "templates:插入模板": false,
+      "command-palette:打开命令面板": false,
+      "bases:新建数据库": false
+    }
+  },
+  "active": "5d89895ec2dc6bdb",
+  "lastOpenFiles": [
+    "07_Templates_模板/项目模板.md",
+    "05_Projects_项目/PID_motor_angle/PID motor angle.md",
+    "05_Projects_项目/PID_motor_angle/pid-motor-angle.md",
+    "08_Maps_导航/00_首页.md",
+    "05_Projects_项目/PID_motor_angle",
+    "05_Projects_项目/_这个文件夹是干嘛的.md",
+    "03_Wiki_知识条目/创客教育/学生提问诊断法.md",
+    "02_AI_prompts_指令库/00_给AI的说明书.md",
+    "00_我的档案.md",
+    "00_从这里开始.md",
+    "01_Daily_每日记录/2026-10-28.md"
+  ]
+}
